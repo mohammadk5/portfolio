@@ -3,53 +3,146 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>Mohammad — Portfolio</title>
+	
+	<!-- Primary Meta Tags -->
+	<title>Mohammad - Full Stack Web Developer | HTML, CSS, JavaScript, React, Node.js</title>
+	<meta name="title" content="Mohammad - Full Stack Web Developer | HTML, CSS, JavaScript, React, Node.js" />
+	<meta name="description" content="Mohammad is a skilled full-stack web developer specializing in HTML5, CSS3, JavaScript, React, Node.js, and Python. Creating responsive, accessible websites with clean code and modern design." />
+	<meta name="keywords" content="Mohammad, web developer, full stack developer, HTML, CSS, JavaScript, React, Node.js, Python, MongoDB, responsive design, frontend developer, backend developer" />
+	<meta name="author" content="Mohammad" />
+	<meta name="robots" content="index, follow" />
+	<link rel="canonical" href="https://mohammadk5-portfolio.vercel.app/" />
+	
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://mohammadk5-portfolio.vercel.app/" />
+	<meta property="og:title" content="Mohammad - Full Stack Web Developer | HTML, CSS, JavaScript, React, Node.js" />
+	<meta property="og:description" content="Mohammad is a skilled full-stack web developer specializing in HTML5, CSS3, JavaScript, React, Node.js, and Python. Creating responsive, accessible websites with clean code and modern design." />
+	<meta property="og:image" content="https://mohammadk5-portfolio.vercel.app/images/mohammad.png" />
+	<meta property="og:image:width" content="320" />
+	<meta property="og:image:height" content="320" />
+	<meta property="og:image:alt" content="Mohammad - Full Stack Web Developer Profile Photo" />
+	<meta property="og:site_name" content="Mohammad Portfolio" />
+	<meta property="og:locale" content="en_US" />
+	
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image" />
+	<meta property="twitter:url" content="https://mohammadk5-portfolio.vercel.app/" />
+	<meta property="twitter:title" content="Mohammad - Full Stack Web Developer | HTML, CSS, JavaScript, React, Node.js" />
+	<meta property="twitter:description" content="Mohammad is a skilled full-stack web developer specializing in HTML5, CSS3, JavaScript, React, Node.js, and Python. Creating responsive, accessible websites with clean code and modern design." />
+	<meta property="twitter:image" content="https://mohammadk5-portfolio.vercel.app/images/mohammad.png" />
+	<meta property="twitter:image:alt" content="Mohammad - Full Stack Web Developer Profile Photo" />
+	
+	<!-- Favicon -->
+	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+	
+	<!-- Preconnect for performance -->
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	
+	<!-- Preload critical resources -->
+	<link rel="preload" href="style.css" as="style" />
+	<link rel="preload" href="images/mohammad.png" as="image" />
+	
 	<link rel="stylesheet" href="style.css" />
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+	
+	<!-- Structured Data -->
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "Person",
+		"name": "Mohammad",
+		"jobTitle": "Full Stack Web Developer",
+		"description": "Skilled full-stack web developer specializing in HTML5, CSS3, JavaScript, React, Node.js, and Python. Creating responsive, accessible websites with clean code and modern design.",
+		"url": "https://mohammadk5-portfolio.vercel.app/",
+		"image": "https://mohammadk5-portfolio.vercel.app/images/mohammad.png",
+		"email": "aianantaai@gmail.com",
+		"telephone": "+8801640455387",
+		"knowsAbout": [
+			"HTML5",
+			"CSS3", 
+			"JavaScript",
+			"React",
+			"Node.js",
+			"Python",
+			"MongoDB",
+			"Git",
+			"Figma",
+			"Photoshop",
+			"Web Development",
+			"Frontend Development",
+			"Backend Development",
+			"Responsive Design"
+		],
+		"sameAs": [
+			"https://www.instagram.com/theanantaai",
+			"https://www.facebook.com/share/16eVfqEHiL/",
+			"https://www.tiktok.com/@ananta.ai3",
+			"https://github.com/mohammadk5"
+		],
+		"worksFor": {
+			"@type": "Organization",
+			"name": "Freelance"
+		}
+	}
+	</script>
 </head>
 <body>
 	<header class="site-header">
 		<div class="container">
 			<a class="logo" href="#">i am Mohammad</a>
 			<nav class="nav" aria-label="Primary">
-				<ul>
+				<ul class="nav-menu">
 					<li><a href="#about">About</a></li>
 					<li><a href="#skills">Skills</a></li>
 					<li><a href="#socialmedia">Social Media</a></li>
 					<li><a href="#contact">Contact</a></li>
 				</ul>
+				<button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+					<span class="hamburger-line"></span>
+					<span class="hamburger-line"></span>
+					<span class="hamburger-line"></span>
+				</button>
 			</nav>
 		</div>
 	</header>
+
+	<!-- Mobile Navigation Overlay -->
+	<div class="nav-overlay"></div>
 
 	<main>
 		<section class="hero">
 			<div class="container">
 				<div class="hero-grid">
 					<div class="hero-content">
-						<h1>hello I'm Mohammad</h1>
-						<p class="lead">I build clean, accessible websites using HTML & CSS.</p>
+						<h1>Mohammad - Full Stack Web Developer</h1>
+						<p class="lead">I build clean, responsive, and accessible websites using HTML5, CSS3, JavaScript, React, and Node.js. Specializing in modern web development with a focus on user experience and performance.</p>
 						<a class="btn" href="#contact">Get in touch</a>
 					</div>
 					<div class="hero-figure" aria-hidden="false">
 						<!-- Place your photo file named `profile.jpg` in the same folder as this HTML. -->
-						<img class="profile-img" src="images/mohammad.png" alt="Mohammad — profile photo" width="320" height="320">
+						<img class="profile-img" src="images/mohammad.png" alt="Mohammad - Full Stack Web Developer - Professional headshot photo showing a friendly web developer specializing in HTML, CSS, JavaScript, React, and Node.js" width="320" height="320" loading="lazy">
 					</div>
 				</div>
 			</div>
 		</section>
 
 		<section id="about" class="about container">
-			<h2>About</h2>
+			<h2>About Mohammad - Professional Web Developer</h2>
 			<p>
-				I'm a web developer focused on creating responsive and accessible
-				front-end experiences. I enjoy turning ideas into simple, usable
-				interfaces.
+				I'm a passionate full-stack web developer with expertise in modern web technologies including HTML5, CSS3, JavaScript, React, Node.js, and Python. I specialize in creating responsive, accessible, and performance-optimized websites that deliver exceptional user experiences. With a strong foundation in both frontend and backend development, I transform complex ideas into clean, maintainable code and intuitive user interfaces.
+			</p>
+			<p>
+				My approach combines technical excellence with creative problem-solving, ensuring every project meets the highest standards of web development best practices, SEO optimization, and cross-browser compatibility.
 			</p>
 		</section>
 
 		<section id="skills" class="skills container">
-			<h2>Skills</h2>
+			<h2>Technical Skills & Expertise</h2>
 			<div class="skills-grid">
 				<div class="skill-category">
 					<h3>Frontend</h3>

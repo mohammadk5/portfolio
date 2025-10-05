@@ -118,7 +118,11 @@ body{
 }
 
 /* Enhanced modern navigation */
-.nav ul{
+.nav{
+    position: relative;
+}
+
+.nav-menu{
     list-style: none;
     display: flex;
     gap: 0.5rem;
@@ -178,15 +182,51 @@ body{
     box-shadow: 0 4px 20px rgba(0, 212, 255, 0.2);
 }
 
-/* Mobile menu toggle (hidden by default) */
+/* Modern Hamburger Menu */
 .nav-toggle{
     display: none;
-    background: none;
-    border: none;
-    color: var(--text);
-    font-size: 1.5rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(26, 26, 26, 0.8);
+    border: 1px solid var(--border);
+    border-radius: 8px;
     cursor: pointer;
-    padding: 0.5rem;
+    transition: all var(--transition-normal);
+    backdrop-filter: blur(10px);
+    gap: 4px;
+    padding: 0;
+}
+
+.nav-toggle:hover{
+    background: rgba(26, 26, 26, 0.9);
+    border-color: var(--accent);
+    transform: scale(1.05);
+}
+
+.hamburger-line{
+    width: 20px;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: all var(--transition-normal);
+    transform-origin: center;
+}
+
+/* Hamburger animation when active */
+.nav-toggle.active .hamburger-line:nth-child(1){
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.nav-toggle.active .hamburger-line:nth-child(2){
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.nav-toggle.active .hamburger-line:nth-child(3){
+    transform: rotate(-45deg) translate(5px, -5px);
 }
 
 /* Modern hero section */
@@ -735,6 +775,77 @@ body{
 
 /* Modern responsive design */
 @media (max-width: 768px){
+    /* Show hamburger menu and hide desktop nav */
+    .nav-toggle{
+        display: flex;
+    }
+    
+    .nav-menu{
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background: rgba(10, 10, 10, 0.95);
+        backdrop-filter: blur(20px);
+        border-left: 1px solid var(--border);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        padding: 2rem;
+        transition: right var(--transition-normal);
+        z-index: 999;
+        border-radius: 0;
+    }
+    
+    .nav-menu.active{
+        right: 0;
+    }
+    
+    .nav-menu li{
+        width: 100%;
+    }
+    
+    .nav-menu a{
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        border-radius: 12px;
+        background: rgba(26, 26, 26, 0.8);
+        border: 1px solid var(--border);
+        transition: all var(--transition-normal);
+    }
+    
+    .nav-menu a:hover{
+        background: var(--gradient);
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 212, 255, 0.3);
+    }
+    
+    /* Mobile overlay */
+    .nav-overlay{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        visibility: hidden;
+        transition: all var(--transition-normal);
+        z-index: 998;
+    }
+    
+    .nav-overlay.active{
+        opacity: 1;
+        visibility: visible;
+    }
+    
     .hero-grid{
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -749,16 +860,6 @@ body{
     .profile-img{
         width: 250px;
         height: 250px;
-    }
-    
-    .nav ul{
-        gap: 0.25rem;
-        padding: 0.25rem;
-    }
-    
-    .nav a{
-        padding: 0.5rem 1rem;
-        font-size: 0.85rem;
     }
     
     .container{
@@ -818,28 +919,14 @@ body{
         height: 200px;
     }
     
-    .nav ul{
-        flex-direction: column;
-        gap: 0.25rem;
-        padding: 0.5rem;
+    .nav-menu{
         width: 100%;
-        margin-top: 1rem;
+        right: -100%;
     }
     
-    .nav a{
-        padding: 0.75rem 1rem;
-        text-align: center;
-        width: 100%;
-    }
-    
-    .site-header .container{
-        flex-direction: column;
-        gap: 0;
-        align-items: center;
-    }
-    
-    .site-header{
-        padding: 0.5rem 0;
+    .nav-menu a{
+        padding: 0.9rem 1.5rem;
+        font-size: 1rem;
     }
 }
 

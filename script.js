@@ -1,5 +1,62 @@
 // Modern Skills Animation
 document.addEventListener('DOMContentLoaded', function() {
+    // Mobile Menu Functionality
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    const navOverlay = document.querySelector('.nav-overlay');
+    const mobileNavLinks = document.querySelectorAll('.nav-menu a');
+    
+    function toggleMobileMenu() {
+        const isActive = navMenu.classList.contains('active');
+        
+        if (isActive) {
+            closeMobileMenu();
+        } else {
+            openMobileMenu();
+        }
+    }
+    
+    function openMobileMenu() {
+        navMenu.classList.add('active');
+        navOverlay.classList.add('active');
+        navToggle.classList.add('active');
+        navToggle.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+    
+    function closeMobileMenu() {
+        navMenu.classList.remove('active');
+        navOverlay.classList.remove('active');
+        navToggle.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = ''; // Restore scrolling
+    }
+    
+    // Toggle menu on hamburger click
+    navToggle.addEventListener('click', toggleMobileMenu);
+    
+    // Close menu when clicking overlay
+    navOverlay.addEventListener('click', closeMobileMenu);
+    
+    // Close menu when clicking nav links
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+    });
+    
+    // Close menu on escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+            closeMobileMenu();
+        }
+    });
+    
+    // Close menu on window resize if open
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768 && navMenu.classList.contains('active')) {
+            closeMobileMenu();
+        }
+    });
+    
     // Intersection Observer for skill bars animation
     const skillItems = document.querySelectorAll('.skill-item');
     
