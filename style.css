@@ -66,7 +66,8 @@ body{
 .container{
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 clamp(1rem, 4vw, 2rem);
+    width: 100%;
 }
 
 /* Modern header with glassmorphism */
@@ -304,7 +305,7 @@ body{
 }
 
 .hero h1{
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: clamp(1.8rem, 6vw, 4rem);
     font-weight: 800;
     margin: 0 0 1rem;
     background: var(--gradient);
@@ -328,7 +329,7 @@ body{
 
 .lead{
     color: var(--text-secondary);
-    font-size: 1.25rem;
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
     margin: 0 0 2rem;
     line-height: 1.6;
     animation: fadeInUp 0.8s var(--transition-normal) 0.8s both;
@@ -398,8 +399,8 @@ body{
 /* Modern profile image */
 .profile-img{
     display: block;
-    width: 300px;
-    height: 300px;
+    width: clamp(180px, 25vw, 300px);
+    height: clamp(180px, 25vw, 300px);
     object-fit: cover;
     border-radius: 50%;
     border: 4px solid var(--accent);
@@ -448,9 +449,9 @@ body{
 }
 
 .about h2, .projects h2, .contact h2{
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: clamp(1.75rem, 5vw, 3rem);
     font-weight: 700;
-    margin-bottom: 3rem;
+    margin-bottom: clamp(2rem, 4vw, 3rem);
     text-align: center;
     background: var(--gradient);
     -webkit-background-clip: text;
@@ -773,7 +774,165 @@ body{
     font-size: 0.9rem;
 }
 
-/* Modern responsive design */
+/* ===== COMPREHENSIVE RESPONSIVE DESIGN ===== */
+
+/* Large Desktop and Ultra-wide screens (1400px+) */
+@media (min-width: 1400px){
+    .container{
+        max-width: 1400px;
+        padding: 0 3rem;
+    }
+    
+    .hero h1{
+        font-size: 5rem;
+    }
+    
+    .lead{
+        font-size: 1.4rem;
+        max-width: 600px;
+    }
+    
+    .profile-img{
+        width: 350px;
+        height: 350px;
+    }
+    
+    .hero-grid{
+        gap: 6rem;
+    }
+    
+    .skills-grid{
+        gap: 3rem;
+    }
+    
+    .skill-category{
+        flex: 0 0 350px;
+    }
+}
+
+/* Desktop (1200px - 1399px) */
+@media (min-width: 1200px) and (max-width: 1399px){
+    .container{
+        max-width: 1200px;
+        padding: 0 2.5rem;
+    }
+    
+    .hero h1{
+        font-size: 4.5rem;
+    }
+    
+    .profile-img{
+        width: 320px;
+        height: 320px;
+    }
+    
+    .hero-grid{
+        gap: 5rem;
+    }
+}
+
+/* Laptop (992px - 1199px) */
+@media (min-width: 992px) and (max-width: 1199px){
+    .container{
+        padding: 0 2rem;
+    }
+    
+    .hero h1{
+        font-size: 3.5rem;
+    }
+    
+    .lead{
+        font-size: 1.2rem;
+    }
+    
+    .profile-img{
+        width: 280px;
+        height: 280px;
+    }
+    
+    .hero-grid{
+        gap: 3rem;
+    }
+    
+    .skills-grid{
+        gap: 2rem;
+    }
+    
+    .skill-category{
+        flex: 0 0 280px;
+    }
+    
+    .projects .grid{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+/* Tablet Landscape (769px - 991px) */
+@media (min-width: 769px) and (max-width: 991px){
+    .container{
+        padding: 0 1.5rem;
+    }
+    
+    .hero{
+        padding-top: 7rem;
+    }
+    
+    .hero-grid{
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+    }
+    
+    .hero h1{
+        font-size: 3rem;
+    }
+    
+    .lead{
+        font-size: 1.15rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .profile-img{
+        width: 260px;
+        height: 260px;
+    }
+    
+    .nav-menu{
+        gap: 0.3rem;
+        padding: 0.4rem;
+    }
+    
+    .nav a{
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+    
+    .skills-grid{
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+    
+    .skill-category{
+        flex: 0 0 calc(50% - 0.75rem);
+        min-width: 250px;
+    }
+    
+    .projects .grid{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .about, .projects, .contact, .skills{
+        padding: 5rem 0;
+    }
+}
+
+/* Tablet Portrait and Mobile Landscape (481px - 768px) */
 @media (max-width: 768px){
     /* Show hamburger menu and hide desktop nav */
     .nav-toggle{
@@ -900,13 +1059,56 @@ body{
     }
 }
 
-@media (max-width: 480px){
+/* Large Mobile (481px - 640px) */
+@media (min-width: 481px) and (max-width: 640px){
     .hero h1{
-        font-size: 2rem;
+        font-size: 2.5rem;
+    }
+    
+    .lead{
+        font-size: 1.15rem;
+        padding: 0 1rem;
+    }
+    
+    .profile-img{
+        width: 220px;
+        height: 220px;
+    }
+    
+    .btn{
+        padding: 0.9rem 1.8rem;
+        font-size: 1.05rem;
+    }
+    
+    .nav-menu{
+        width: 90%;
+        right: -90%;
+    }
+    
+    .skills-grid{
+        gap: 1rem;
+    }
+    
+    .skill-category{
+        padding: 1rem;
+        max-width: 350px;
+    }
+    
+    .card{
+        padding: 1.5rem;
+    }
+}
+
+/* Standard Mobile (361px - 480px) */
+@media (min-width: 361px) and (max-width: 480px){
+    .hero h1{
+        font-size: 2.2rem;
+        line-height: 1.1;
     }
     
     .lead{
         font-size: 1.1rem;
+        padding: 0 0.5rem;
     }
     
     .btn{
@@ -922,11 +1124,146 @@ body{
     .nav-menu{
         width: 100%;
         right: -100%;
+        padding: 1.5rem;
     }
     
     .nav-menu a{
         padding: 0.9rem 1.5rem;
         font-size: 1rem;
+    }
+    
+    .container{
+        padding: 0 0.75rem;
+    }
+    
+    .about h2, .projects h2, .contact h2, .skills h2{
+        font-size: 2rem;
+    }
+    
+    .about p{
+        font-size: 1.1rem;
+        padding: 0 0.5rem;
+    }
+    
+    .skill-category{
+        padding: 1rem;
+        margin: 0 0.5rem;
+    }
+    
+    .card{
+        padding: 1.25rem;
+        margin: 0 0.25rem;
+    }
+}
+
+/* Small Mobile (280px - 360px) */
+@media (max-width: 360px){
+    .hero h1{
+        font-size: 1.8rem;
+        line-height: 1.1;
+        margin-bottom: 0.75rem;
+    }
+    
+    .lead{
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: 1.5rem;
+    }
+    
+    .btn{
+        padding: 0.7rem 1.2rem;
+        font-size: 0.95rem;
+        width: 100%;
+        max-width: 200px;
+    }
+    
+    .profile-img{
+        width: 180px;
+        height: 180px;
+    }
+    
+    .container{
+        padding: 0 0.5rem;
+    }
+    
+    .site-header .container{
+        padding: 0.75rem 0.5rem;
+    }
+    
+    .nav-menu{
+        width: 100%;
+        right: -100%;
+        padding: 1rem;
+        gap: 1rem;
+    }
+    
+    .nav-menu a{
+        padding: 0.8rem 1rem;
+        font-size: 0.95rem;
+    }
+    
+    .about, .projects, .contact, .skills{
+        padding: 3rem 0;
+    }
+    
+    .about h2, .projects h2, .contact h2, .skills h2{
+        font-size: 1.75rem;
+        margin-bottom: 2rem;
+    }
+    
+    .about p{
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+    
+    .skills{
+        margin: 1.5rem auto;
+        width: 98%;
+        padding: 3rem 0.5rem;
+    }
+    
+    .skill-category{
+        padding: 0.75rem;
+        margin: 0;
+        width: 100%;
+        max-width: none;
+    }
+    
+    .skill-category h3{
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+    }
+    
+    .skill-name{
+        font-size: 0.9rem;
+    }
+    
+    .card{
+        padding: 1rem;
+        margin: 0;
+    }
+    
+    .card h3{
+        font-size: 1.25rem;
+    }
+    
+    .card p{
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+    
+    .contact p{
+        font-size: 1rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .site-footer{
+        padding: 1.5rem 0;
+    }
+    
+    .site-footer p{
+        font-size: 0.85rem;
+        padding: 0 0.5rem;
     }
 }
 
